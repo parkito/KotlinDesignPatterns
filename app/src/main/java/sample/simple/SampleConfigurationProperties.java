@@ -22,7 +22,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "sample")
+@ConfigurationProperties(prefix = "src/main/java/sample")
 public class SampleConfigurationProperties {
 
 	@NotNull
