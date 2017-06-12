@@ -50,6 +50,6 @@
     </build>
 
     <properties>
-        <start-class>package sample.simple.service.SampleSimpleApplication</start-class>
+        <start-class>sample.simple.service.SampleSimpleApplication</start-class>
     </properties>
 </project>
