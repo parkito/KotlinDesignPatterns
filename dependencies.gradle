@@ -1,0 +1,5 @@
+ext {
+    kotlinVersion = "1.2.21"
+    springDataVersion = '2.0.3.RELEASE'
+    junitVersion = "5.0.3"
+}

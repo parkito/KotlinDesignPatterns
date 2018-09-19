@@ -1,0 +1,32 @@
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.2.21"
+}
+
+group 'ru.siksmfp.kotlin.patterns'
+version '0.0.1-SNAPSHOT'
+
+subprojects {
+    apply plugin: 'kotlin'
+    apply from: rootProject.projectDir.path + '/dependencies.gradle'
+
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jre8"
+
+        testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+        testRuntime "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+        testCompile 'org.junit.platform:junit-platform-runner:1.0.3'
+    }
+    repositories {
+        mavenCentral()
+    }
+    compileKotlin {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "4.1"
+}
