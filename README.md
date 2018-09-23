@@ -1,1 +1,1 @@
-Design patterns implementation in Kotlin
+Design patterns implementen in Java

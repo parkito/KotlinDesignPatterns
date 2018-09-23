@@ -1,4 +1,1 @@
-apply plugin: 'application'
-
-dependencies {
-}
+apply plugin: 'java'

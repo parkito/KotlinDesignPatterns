@@ -1,5 +1,6 @@
 ext {
-    kotlinVersion = "1.2.21"
-    springDataVersion = '2.0.3.RELEASE'
-    junitVersion = "5.0.3"
+	kotlinVersion='1.2.21'
+    jUnitApiVersion = '5.0.0'
+    jUnitEngineVersion = '5.0.0'
+    self4jVersion = '1.7.25'
 }
