@@ -6,7 +6,15 @@ fun main(args: Array<String>) {
     val text = File("text", FileType.PDF);
     val unknown = File("unknown", FileType.UNKNOWN);
 
-    val processor: Handler = AudioHandler(VideoHandler(DocHandler(DefaultHandler())));
+    val holderCombiner: (List<Handler>) -> Handler = { handlers ->
+        for (i in 0..handlers.size - 2) {
+            handlers[i].combine(handlers[i + 1])
+        }
+        handlers.get(0)
+    }
+
+
+    val processor: Handler = holderCombiner(listOf(AudioHandler(), VideoHandler(), DocHandler()));
     processor.doProcess(movie);
     processor.doProcess(audio);
     processor.doProcess(text);

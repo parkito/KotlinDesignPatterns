@@ -3,8 +3,15 @@ package ru.siksmfp.kotlin.patterns.behaviour.chain.implementation;
 import ru.siksmfp.kotlin.patterns.behaviour.chain.implementation.FileType.AVI
 import ru.siksmfp.kotlin.patterns.behaviour.chain.implementation.FileType.WMA
 
-class VideoHandler(val nextHandler: Handler) : Handler {
+class VideoHandler : Handler {
     private val VIDEO_TYPES = listOf(AVI, WMA)
+    lateinit var nextHandler: Handler;
+
+    constructor(nextHandler: Handler) {
+        this.nextHandler = nextHandler
+    }
+
+    constructor()
 
     override fun doProcess(file: File) {
         if (VIDEO_TYPES.contains(file.fileType)) {
@@ -12,5 +19,10 @@ class VideoHandler(val nextHandler: Handler) : Handler {
         } else {
             nextHandler.doProcess(file);
         }
+    }
+
+    override fun combine(handler: Handler): Handler {
+        nextHandler = handler
+        return nextHandler
     }
 }
