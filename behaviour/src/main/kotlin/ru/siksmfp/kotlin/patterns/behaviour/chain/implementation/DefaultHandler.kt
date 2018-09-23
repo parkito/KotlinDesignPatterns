@@ -5,4 +5,8 @@ class DefaultHandler : Handler {
     override fun doProcess(file: File) {
         println("There is no handler for ${file.name}");
     }
+
+    override fun combine(handler: Handler): Handler {
+        return this
+    }
 }

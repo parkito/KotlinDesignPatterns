@@ -6,15 +6,8 @@ fun main(args: Array<String>) {
     val text = File("text", FileType.PDF);
     val unknown = File("unknown", FileType.UNKNOWN);
 
-    val holderCombiner: (List<Handler>) -> Handler = { handlers ->
-        for (i in 0..handlers.size - 2) {
-            handlers[i].combine(handlers[i + 1])
-        }
-        handlers.get(0)
-    }
 
-
-    val processor: Handler = holderCombiner(listOf(AudioHandler(), VideoHandler(), DocHandler()));
+    val processor: Handler = Handler.Combiner.holderCombiner(AudioHandler(), VideoHandler(), DocHandler());
     processor.doProcess(movie);
     processor.doProcess(audio);
     processor.doProcess(text);
@@ -25,3 +18,4 @@ fun main(args: Array<String>) {
 //        File text is doc file. It'll be processed as doc file
 //        There is no handler for unknown
 }
+
